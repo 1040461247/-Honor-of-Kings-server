@@ -5,6 +5,7 @@ var path = require('path')
 var upload = multer({ dest: path.join(__dirname, '../../uploadImg') })
 
 router.post('/', upload.single('file'), (req, res) => {
+  console.log(req.file)
   res.send('http://localhost:3000/uploadImg/' + req.file.filename)
 })
 
