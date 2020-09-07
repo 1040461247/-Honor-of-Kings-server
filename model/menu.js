@@ -3,7 +3,10 @@ const mongoose = require('mongoose')
 
 const menuSchema = new Schema({
   level1: String,
-  children: Array
+  children: [{
+    level2: String,
+    children: Array
+  }]
 })
 
 const menuModel = mongoose.model('menu', menuSchema)

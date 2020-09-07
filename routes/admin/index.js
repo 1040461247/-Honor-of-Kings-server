@@ -8,6 +8,7 @@ var itemsRouter = require('./items')
 var heroesRouter = require('./heroes')
 var articlesRouter = require('./articles')
 var adsRouter = require('./ads')
+var adminUserRouter = require('./adminUser')
 
 router.use('/menu', menuRouter)
 router.use('/categories', categoriesRouter)
@@ -16,5 +17,6 @@ router.use('/upload', uploadRouter)
 router.use('/heroes', heroesRouter)
 router.use('/articles', articlesRouter)
 router.use('/ads', adsRouter)
+router.use('/adminUser', adminUserRouter)
 
 module.exports = router;
