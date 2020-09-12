@@ -10,8 +10,7 @@ const AdminUserSchema = new Schema({
       const obj = crypto.createHash('md5')
       const text = obj.update(oldValue).digest('hex')
       return text
-    },
-    select: false
+    }
   },
   level: Number
 })
