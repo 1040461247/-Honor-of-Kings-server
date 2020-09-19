@@ -5,18 +5,18 @@ var fs = require('fs')
 var path = require('path');
 const { RSA_NO_PADDING } = require('constants');
 
-// 添加物品
+// 添加英雄
 router.post('/create', async (req, res) => {
   let formInfo = req.body
   let dbRes = await Heroes.create(formInfo)
   dbRes && res.send('添加成功')
 })
-// 获取物品列表
+// 获取英雄列表
 router.get('/list', async (req, res) => {
   let docs = await Heroes.find()
   res.send(docs)
 })
-// 获取物品原数据
+// 获取英雄原数据
 router.get('/edit/:id', async (req, res) => {
   let id = req.params.id
   let dbRes = await Heroes.findOne({_id: id})
@@ -33,7 +33,7 @@ router.put('/edit/:id', async (req, res) => {
     res.send(err)
   })
 })
-// 删除物品
+// 删除英雄
 router.delete('/delete/:id', async (req, res) => {
   let id = req.params.id
   let imgUrl = await Heroes.findOne({_id: id}, 'icon')

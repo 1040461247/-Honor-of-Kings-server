@@ -4,10 +4,11 @@ const mongoose = require('mongoose')
 const heroesSchema = new Schema({
   name: String, 
   icon: String,
+  banner: String,
   // 称号
   title: String,
   // 英雄类型
-  categories: Array,
+  categories: [],
   // 难度、技能、攻击、生存评分
   scores: {
     defficult: Number,
@@ -20,7 +21,9 @@ const heroesSchema = new Schema({
     icon: String,
     name: String,
     description: String,
-    tips: String
+    tips: String,
+    delay: String,
+    cost: String
   }],
   // 出装推荐，顺风出装
   items1: [{

@@ -6,6 +6,7 @@ var stringRandom = require('string-random')
 // 添加文章
 router.post('/create', async (req, res) => {
   let formInfo = req.body
+  formInfo.date = new Date()
   formInfo._id = stringRandom(22)
   let findRes = await Categories.findOne({'children._id': formInfo.parent})
   let pushRes = findRes.children.filter(item => {
@@ -44,6 +45,7 @@ router.get('/list', async (req, res) => {
 router.post('/edit/:id', async (req, res) => {
   const id = req.params.id
   const formInfo = req.body
+  formInfo.date = new Date()
   let dbRes = await Categories.findOne({ 'children._id': formInfo.parent })
   dbRes = dbRes.children
   let newsChildren = dbRes
